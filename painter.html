@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html> 
+
+<body>
+    <h1 style="text-align:center; color:black">Painter entry by Mounitha Vemula</h1>
+    <h2><b>Guessing Painter</b></h2>
+    <form>
+        <label for="form1_secret"><b>The hidden painter name </b></label><br>
+        <input class="form-control" type ="password" id="form1_secret" name="form1_secret" value="Monet"> <br>
+        <label for="form1_name"><b>Guess the painter </b></label><br>
+        <input class="form-control" type ="text" id="form1_name" name="form1_name" autofocus> <br>
+        <input type="button" class="btn btn-danger" onclick="checkPainter()" value="Check the guess"><br>
+    </form>
+    <br><p id="result"><b><i>This text will be replaced</i></b> </p>
+    <script> 
+    good = 0
+    oops = 0
+    function checkPainter (){
+        console.log("Getting form values")
+        secret = document.getElementById("form1_secret").value
+        name = document.getElementById("form1_name").value    
+        out = document.getElementById("result")
+       if(secret==name){
+            alert("You got it right")
+             good = good+1
+            out.innerHTML = "correct answer:"+ good +" wrong answer:"+ oops
+        } else {
+            alert("Sorry")
+            oops = oops+1
+            if (good == 0 && oops % 3 == 0 && oops != 0) {
+                        
+                        oops = 0
+                        good = 0
+                } else if (good > 0) {
+                        good = 0
+                        good = 0
+                        out.innerHTML = "correct answer:" + good + " wrong answer:" + oops
+                }
+            out.innerHTML ="correct answer:"+ oops + " wrong answer:"+ oops
+        }
+    }
+    </script>
+
+
+
+</body>
+</html> 
