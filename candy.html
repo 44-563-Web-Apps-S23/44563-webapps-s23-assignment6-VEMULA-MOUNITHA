@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+
+<h2>Mounitha Vemula chooses candy</h2>
+
+<div class="container">
+    <form>
+       
+        <input type="checkbox" id="DarkChocolate" name="candy" value="true">
+        <label for="DarkChocolate">Dark Chocolate</label> <br>
+     
+        <input type="checkbox" id="Nuts" name="candy" value="true">
+        <label for="Nuts">Nuts</label> <br>
+    
+        <input type="checkbox" id="Chewy" name="candy" value="false">
+        <label for="Chewy">Chewy</label> <br>
+    
+        <input type="button" class="btn btn-warning" value="Select a box" onclick="selectBox()">
+    
+    </form>
+    <br>
+    <form>
+        <label for="size">Enter the size</label>
+        <input type="text" id="size" name="size" value="size"> <br>
+        
+        <label for="size">Enter price</label>
+        <input type="text" id="price" name="price"> <br>
+    
+        <input type="button" class="btn btn-success" value="Update the box" onclick="updateBox()">
+    </form>
+    
+    
+    
+    <p id="result">This text will be replaced </p>
+</div>
+</div>
+<script> 
+    let my_candy_box={};
+    function selectBox()
+    {
+        
+        let darkChocolate=document.getElementById("DarkChocolate").checked
+        let Nuts=document.getElementById("Nuts").checked
+        let Chewy=document.getElementById("Chewy").checked
+    
+        if(darkChocolate)
+        {
+            my_candy_box.DarkChocolate=true;
+        }
+        else
+        {
+            my_candy_box.DarkChocolate=false;
+        }
+        if(Nuts)
+        {
+            my_candy_box.Nuts=true;
+        }
+        else
+        {
+            my_candy_box.Nuts=false;
+        }
+        if(Chewy)
+        {
+            my_candy_box.Chewy=true;
+        }
+        else
+        {
+            my_candy_box.Chewy=false;
+        }
+        
+    
+        document.getElementById("result").innerHTML=JSON.stringify(my_candy_box)
+        document.getElementById("DarkChocolate").checked = false;
+        document.getElementById("Nuts").checked = false;
+        document.getElementById("Chewy").checked = false;
+    
+    }
+    
+    function updateBox()
+    {
+        let size=document.getElementById("size").value;
+        let price=document.getElementById("price").value;
+        my_candy_box["size"]=size;
+        my_candy_box["price"]=price;
+    
+        document.getElementById("result").innerHTML=JSON.stringify(my_candy_box)
+    }
+    
+    </script>
+
+</body>
+</html> 

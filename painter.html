@@ -40,6 +40,27 @@
         }
     }
     </script>
+    <div><img src="Easter Lily.jpg" id="plant" 
+        height="100px" width="100px" onclick="selectImage()"></div>
+    <script>
+        var useImage=1;
+        function selectImage(){
+            switch(useImage){
+                case 1:
+                document.getElementById("plant").src="Vanda Orchid.jpg"
+                useImage=2;
+                break;
+                case 2:
+                document.getElementById("plant").src="Magnolia jane.jpg"
+                useImage=3;
+                break;
+                case 3:
+                document.getElementById("plant").src="Easter Lily.jpg"
+                useImage=1;
+                break;
+            }
+        }
+    </script>
 
 
 
