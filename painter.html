@@ -1,63 +1,80 @@
 <!DOCTYPE html>
-<html> 
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</head>
 
 <body>
-    <h1 style="text-align:center; color:black">Painter entry by Mounitha Vemula</h1>
-    <h2><b>Guessing Painter</b></h2>
-    <form>
-        <label for="form1_secret"><b>The hidden painter name </b></label><br>
-        <input class="form-control" type ="password" id="form1_secret" name="form1_secret" value="Monet"> <br>
-        <label for="form1_name"><b>Guess the painter </b></label><br>
-        <input class="form-control" type ="text" id="form1_name" name="form1_name" autofocus> <br>
-        <input type="button" class="btn btn-danger" onclick="checkPainter()" value="Check the guess"><br>
-    </form>
-    <br><p id="result"><b><i>This text will be replaced</i></b> </p>
-    <script> 
-    good = 0
-    oops = 0
-    function checkPainter (){
-        console.log("Getting form values")
-        secret = document.getElementById("form1_secret").value
-        name = document.getElementById("form1_name").value    
-        out = document.getElementById("result")
-       if(secret==name){
-            alert("You got it right")
-             good = good+1
-            out.innerHTML = "correct answer:"+ good +" wrong answer:"+ oops
-        } else {
-            alert("Sorry")
-            oops = oops+1
-            if (good == 0 && oops % 3 == 0 && oops != 0) {
-                        
-                        oops = 0
-                        good = 0
-                } else if (good > 0) {
-                        good = 0
-                        good = 0
-                        out.innerHTML = "correct answer:" + good + " wrong answer:" + oops
-                }
-            out.innerHTML ="correct answer:"+ oops + " wrong answer:"+ oops
-        }
-    }
-    </script>
-    <div><img src="Easter Lily.jpg" id="plant" 
-        height="100px" width="100px" onclick="selectImage()"></div>
+    <div class="container">
+        <h1 style="text-align:center; color:black">Painter entry by Mounitha Vemula</h1>
+        <h2><b>Guessing Painter</b></h2>
+        <form>
+            <label for="form1_secret"><b>The hidden painter name </b></label><br>
+            <input class="form-control" type="password" id="form1_secret" name="form1_secret" value="Monet"> <br>
+            <label for="form1_name"><b>Guess the painter </b></label><br>
+            <input class="form-control" type="text" id="form1_name" name="form1_name" autofocus> <br>
+            <input type="button" class="btn btn-danger" onclick="checkPainter()" value="Check the guess"><br>
+        </form>
+        <br>
+        <p id="result"><b><i>This text will be replaced</i></b> </p>
+    </div>
     <script>
-        var useImage=1;
-        function selectImage(){
-            switch(useImage){
+        good = 0
+        oops = 0
+        function checkPainter() {
+            console.log("Getting form values")
+            secret = document.getElementById("form1_secret").value
+            name = document.getElementById("form1_name").value
+            out = document.getElementById("result")
+            if (secret == name) {
+                alert("You got it right")
+                good = good + 1
+                out.innerHTML = "correct answer:" + good + " wrong answer:" + oops
+            } else {
+                alert("Sorry")
+                oops = oops + 1
+                if (good == 0 && oops % 3 == 0 && oops != 0) {
+
+                    oops = 0
+                    good = 0
+                } else if (good > 0) {
+                    good = 0
+                    good = 0
+                    out.innerHTML = "correct answer:" + good + " wrong answer:" + oops
+
+                }
+                out.innerHTML = "correct answer:" + oops + " wrong answer:" + oops
+                noOfGuesses(oops);
+            }
+        }
+    </script>
+    <div class="container"><img src="Easter Lily.jpg" id="plant" height="100px" width="100px" onclick="selectImage()"></div>
+    <script>
+        var useImage = 1;
+        function selectImage() {
+            switch (useImage) {
                 case 1:
-                document.getElementById("plant").src="Vanda Orchid.jpg"
-                useImage=2;
-                break;
+                    document.getElementById("plant").src = "Vanda Orchid.jpg"
+                    useImage = 2;
+                    break;
                 case 2:
-                document.getElementById("plant").src="Magnolia jane.jpg"
-                useImage=3;
-                break;
+                    document.getElementById("plant").src = "Magnolia jane.jpg"
+                    useImage = 3;
+                    break;
                 case 3:
-                document.getElementById("plant").src="Easter Lily.jpg"
-                useImage=1;
-                break;
+                    document.getElementById("plant").src = "Easter Lily.jpg"
+                    useImage = 1;
+                    break;
+            }
+        }
+        function noOfGuesses(guessCount) {
+            if (guessCount == 10) {
+                alert("Sorry, ran out of guesses");
             }
         }
     </script>
@@ -65,4 +82,5 @@
 
 
 </body>
-</html> 
+
+</html>
