@@ -13,7 +13,7 @@
         <h1 style="text-align:center; color:black">Painter entry by Mounitha Vemula</h1>
         <h2><b>Guessing Painter</b></h2>
         <form>
-            <label for="form1_secret"><b>The hidden painter name </b></label><br>
+            <label for="form1_password"><b>The hidden painter name </b></label><br>
             <input class="form-control" type="password" id="form1_secret" name="form1_secret" value="Monet"> <br>
             <label for="form1_name"><b>Guess the painter </b></label><br>
             <input class="form-control" type="text" id="form1_name" name="form1_name" autofocus> <br>
@@ -27,10 +27,10 @@
         let oops = 0
         function checkPainter() {
             console.log("Getting form values")
-            secret = document.getElementById("form1_secret").value
+            password = document.getElementById("form1_secret").value
             guess = document.getElementById("form1_name").value
             out = document.getElementById("result")
-            if (secret == guess)
+            if (password == guess)
              {
                 alert("You got it right")
                 good = good + 1
